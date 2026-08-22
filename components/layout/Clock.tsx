@@ -1,0 +1,30 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function Clock() {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const update = () =>
+      setTime(
+        new Date().toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        })
+      );
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  if (!time) return null;
+
+  return (
+    <span className="font-mono text-xs tracking-widest text-ink-dim hidden sm:block">
+      {time} IST
+    </span>
+  );
+}
