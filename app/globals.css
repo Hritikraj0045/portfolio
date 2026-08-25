@@ -100,3 +100,12 @@ body {
     clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%));
   }
 }
+@keyframes portfolio-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

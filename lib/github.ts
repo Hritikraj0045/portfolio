@@ -26,9 +26,9 @@ const QUERY = `
 `;
 
 export async function getGithubStats(): Promise<GithubStats> {
-  const to = new Date();
-  const from = new Date();
-  from.setDate(to.getDate() - 364);
+  const to = new Date("2023-12-31T23:59:59Z");
+  const from = new Date("2023-01-01T00:00:00Z");
+  // from.setDate(to.getDate() - 364);
 
   try {
     const res = await fetch("https://api.github.com/graphql", {
@@ -45,7 +45,7 @@ export async function getGithubStats(): Promise<GithubStats> {
           to: to.toISOString(),
         },
       }),
-      next: { revalidate: 3600 }, // re-fetch at most once per hour
+      next: { revalidate: 600 }, // re-fetch at most once per hour
     });
 
     if (!res.ok) throw new Error(`GitHub GraphQL request failed: ${res.status}`);

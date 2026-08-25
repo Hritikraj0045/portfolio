@@ -8,6 +8,10 @@ const tickerItems = [
   "FULL STACK DEVELOPER.",
   "AI & AGENTIC SYSTEMS",
   "SYSTEM DESIGN",
+  "REACT / NEXT.JS",
+  "SCRAPERS & AUTOMATION",
+  "ANALYTICS & DATA PIPELINES",
+  "DASHBOARDS & VISUALIZATION",
 ];
 
 export default function Hero() {
@@ -35,6 +39,7 @@ export default function Hero() {
       >
         Hritik Raj Arya
       </motion.h1>
+      <div className="w-full h-3 bg-[#06277c]" />
     </section>
   );
 }

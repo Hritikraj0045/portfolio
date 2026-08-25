@@ -12,18 +12,20 @@ export interface Project {
     source?: string;
   };
   stats: { value: string; label: string }[];
-  gallery: { label: string }[];
+  gallery: { label: string; image?: string }[];
 }
 
 export interface SkillItem {
   name: string;
   description: string;
   color: string;
+  icon: string;
 }
 
 export interface SkillGroup {
-  number: string; // "01", "02"
+  number: string;
   title: string;
+  description?: string;
   skills: SkillItem[];
 }
 
@@ -37,6 +39,28 @@ export interface GithubStats {
 }
 
 export type CarouselCard =
-  | { type: "photo"; label: string; variant: "one" | "two"; href?: string; image?: string }
-  | { type: "metrics"; stats: { value: string; label: string }[] }
-  | { type: "ask"; href?: string };
+  | {
+      type: "photo";
+      label: string;
+      variant: "one" | "two";
+      href?: string;
+      image?: string;
+    }
+  | {
+      type: "metrics";
+      stats: { value: string; label: string }[];
+      image?: string;
+      href?: string;
+    }
+  | {
+      type: "link";
+      title: string;
+      label: string;
+      href: string;
+      image: string;
+    }
+  | {
+      type: "ask";
+      href?: string;
+      image?: string;
+    };

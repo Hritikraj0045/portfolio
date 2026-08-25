@@ -58,7 +58,13 @@ export default async function GithubSection() {
             <Heatmap data={stats.heatmap} />
             <div className="flex justify-between mt-3.5 font-mono text-[11px] text-ink-dim">
               <span>{stats.contributions} contributions in the last year</span>
-              <span>Less <span className="text-accent-2">■■■■</span> More</span>
+              <span>
+                Less{" "}
+                <span className="text-accent-2 bg-gradient-to-r from-green-900 via-green-500 to-green-300 bg-clip-text text-transparent">
+                  ■■■■
+                </span>{" "}
+                More
+              </span>
             </div>
           </div>
         </div>

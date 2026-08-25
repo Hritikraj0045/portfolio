@@ -40,12 +40,10 @@ export default function ToolkitSection() {
   return (
     <section id="toolkit">
       <SectionHeading
-        eyebrow="(Skills In Practice)"
+        eyebrow="Skills In Practice"
         title={
           <>
-            Engineering
-            <br />
-            Toolkit
+          MY ENGINEERING STACK
           </>
         }
         description="A practical engineering stack across AI, frontend, backend, databases, and deployment — focused on building production-ready products."

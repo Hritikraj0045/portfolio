@@ -3,8 +3,14 @@ import { anton, generalSans, jetbrainsMono } from "@/lib/fonts";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
+import { MenuProvider } from "@/components/ui/MenuContext";
+import Script from "next/script";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
@@ -12,27 +18,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${anton.variable} ${generalSans.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var stored = localStorage.getItem('theme');
-                  if (stored === 'light') {
-                    document.documentElement.classList.remove('dark');
-                  } else {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (function() {
+              try {
+                var stored = localStorage.getItem('theme');
+
+                if (stored === 'light') {
+                  document.documentElement.classList.remove('dark');
+                } else {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (e) {}
+            })();
+          `}
+        </Script>
       </head>
+
       <body>
         <CustomCursor />
+
         <ThemeProvider>
-          <SmoothScroll>{children}</SmoothScroll>
+          <MenuProvider>
+            <SmoothScroll>
+              {children}
+            </SmoothScroll>
+          </MenuProvider>
         </ThemeProvider>
       </body>
     </html>

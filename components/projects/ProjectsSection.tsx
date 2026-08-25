@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/data";
 import Gallery from "./Gallery";
-import SectionHeading from "@/components/ui/SectionHeading";
+// import SectionHeading from "@/components/ui/SectionHeading";
 import Magnetic from "@/components/ui/Magnetic";
 
 export default function ProjectsSection() {
@@ -13,17 +13,15 @@ export default function ProjectsSection() {
 
   return (
     <section id="work">
-      <SectionHeading
-        eyebrow="(Featured Projects)"
+      {/* <SectionHeading
+        eyebrow="Featured Projects"
         title={
           <>
-            Selected
-            <br />
-            Works
+            Selected Works
           </>
         }
         description="A curated selection of recent engineering projects and technical explorations."
-      />
+      /> */}
 
       <div className="flex border-y border-line overflow-x-auto">
         <div className="hidden sm:flex items-center px-10 py-5 font-mono text-[13px] uppercase font-bold shrink-0">
