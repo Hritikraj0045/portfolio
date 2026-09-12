@@ -4,10 +4,11 @@ import type { Project, SkillGroup, CarouselCard } from "@/types";
 // Navigation
 // ============================================================
 export const navLinks = [
-  { label: "WORK", href: "#work" },
+  { label: "WORK", href: "/work" },
   { label: "ABOUT", href: "/about" },
   { label: "BLOG", href: "/blog" },
-  { label: "CONNECT", href: "#contact" },
+  { label: "CONNECT", href: "/connect" },
+  { label: "ASK", href: "/ask" },
   { label: "STATUS", href: "/status" },
 ] as const;
 
