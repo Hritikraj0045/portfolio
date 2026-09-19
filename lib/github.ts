@@ -1,9 +1,6 @@
 import "server-only";
 import type { GithubStats } from "@/types";
 
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME!;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN!;
-
 const QUERY = `
   query($username: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $username) {
@@ -27,6 +24,9 @@ const QUERY = `
 `;
 
 export async function getGithubStats(): Promise<GithubStats> {
+  const GITHUB_USERNAME = process.env.GITHUB_USERNAME!;
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN!;
+
   const to = new Date("2023-12-31T23:59:59Z");
   const from = new Date("2023-01-01T00:00:00Z");
   // from.setDate(to.getDate() - 364);
@@ -46,29 +46,43 @@ export async function getGithubStats(): Promise<GithubStats> {
           to: to.toISOString(),
         },
       }),
-      next: { revalidate: 600 }, // re-fetch at most once per hour
+      next: { revalidate: 600 },
     });
 
-    if (!res.ok) throw new Error(`GitHub GraphQL request failed: ${res.status}`);
+    if (!res.ok) {
+      throw new Error(`GitHub GraphQL request failed: ${res.status}`);
+    }
 
     const json = await res.json();
-    if (json.errors) throw new Error(json.errors[0]?.message ?? "GraphQL error");
+
+    if (json.errors) {
+      throw new Error(json.errors[0]?.message ?? "GraphQL error");
+    }
 
     const user = json.data.user;
     const calendar = user.contributionsCollection.contributionCalendar;
 
     const days = calendar.weeks.flatMap(
-      (w: { contributionDays: { contributionCount: number }[] }) => w.contributionDays
+      (w: { contributionDays: { contributionCount: number }[] }) =>
+        w.contributionDays
     );
 
-    // separately fetch total stars — contributionsCollection doesn't include this
+    // Separately fetch total stars
     const starsRes = await fetch(
       `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`,
       { next: { revalidate: 3600 } }
     );
+
     const repos = starsRes.ok ? await starsRes.json() : [];
+
     const stars = Array.isArray(repos)
-      ? repos.reduce((sum: number, r: { stargazers_count?: number }) => sum + (r.stargazers_count ?? 0), 0)
+      ? repos.reduce(
+          (
+            sum: number,
+            r: { stargazers_count?: number }
+          ) => sum + (r.stargazers_count ?? 0),
+          0
+        )
       : 0;
 
     return {
@@ -77,10 +91,14 @@ export async function getGithubStats(): Promise<GithubStats> {
       repositories: user.repositories.totalCount,
       stars,
       followers: user.followers.totalCount,
-      heatmap: days.map((d: { contributionCount: number }) => bucketize(d.contributionCount)),
+      heatmap: days.map(
+        (d: { contributionCount: number }) =>
+          bucketize(d.contributionCount)
+      ),
     };
   } catch (error) {
     console.error("Failed to fetch GitHub stats:", error);
+
     return {
       username: GITHUB_USERNAME,
       contributions: 0,
@@ -92,7 +110,7 @@ export async function getGithubStats(): Promise<GithubStats> {
   }
 }
 
-// GitHub's own UI buckets raw counts into 5 intensity levels — we replicate that
+// GitHub's own UI buckets raw counts into 5 intensity levels
 function bucketize(count: number): number {
   if (count === 0) return 0;
   if (count <= 2) return 1;
