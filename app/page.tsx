@@ -5,6 +5,8 @@ import ProjectsSection from "@/components/projects/ProjectsSection";
 import ToolkitSection from "@/components/toolkit/ToolkitSection";
 import GithubSection from "@/components/github/GithubSection";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>
