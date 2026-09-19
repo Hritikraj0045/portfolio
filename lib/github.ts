@@ -1,3 +1,4 @@
+import "server-only";
 import type { GithubStats } from "@/types";
 
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME!;
