@@ -8,6 +8,7 @@ export default function BlogPage() {
 
       <main className="min-h-screen bg-bg">
         {/* Blog content */}
+        
       </main>
 
       <Footer />

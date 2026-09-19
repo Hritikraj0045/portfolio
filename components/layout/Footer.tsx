@@ -1,9 +1,10 @@
 import { navLinks, socials } from "@/lib/data";
+import FooterDirectory from "@/components/layout/FooterDirectory";
 
 export default function Footer() {
   return (
     <footer id="contact" className="px-10 pt-16">
-      <div className="flex flex-wrap items-center justify-between gap-6 pb-8">
+      {/* <div className="flex flex-wrap items-center justify-between gap-6 pb-8">
         <ul className="flex flex-wrap items-center gap-8 font-mono text-sm text-ink-dim">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -29,14 +30,14 @@ export default function Footer() {
           </div>
           <span className="text-ink-dim">EN</span>
         </div>
-      </div>
+      </div> */}
+      <FooterDirectory />
 
       <div className="border-t border-line" />
 
-      <h2 className="font-display uppercase text-[clamp(44px,10vw,140px)] leading-[0.9] py-6">
+      <h2 className="font-display uppercase text-[clamp(44px,10vw,140px)] leading-[0.9] py-6 bg-gradient-to-r from-[#1f9c3f] via-[#72d982] to-[#effff1] bg-clip-text text-transparent">
         Hritik Raj Arya
       </h2>
-
       <div className="border-t border-line" />
 
       <div className="flex justify-between items-center py-6 flex-wrap gap-4 font-mono text-xs text-ink-dim">
