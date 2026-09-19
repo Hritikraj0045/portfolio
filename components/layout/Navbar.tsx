@@ -10,7 +10,7 @@ export default function Navbar() {
   const { open, toggleMenu } = useMenu();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 grid grid-cols-3 items-center px-10 py-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 grid grid-cols-3 items-center px-10 py-6 bg-bg/70 backdrop-blur-md border-b border-line">
       {/* Logo */}
       <Link
         href="/"

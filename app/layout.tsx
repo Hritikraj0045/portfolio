@@ -5,6 +5,9 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
 import { MenuProvider } from "@/components/ui/MenuContext";
 import Script from "next/script";
+import MenuOverlay from "@/components/layout/MenuOverlay";
+import LenisMenuSync from "@/components/layout/LenisMenuSync";
+import ScrollToTopOnLoad from "@/components/layout/ScrollToTopOnLoad";
 
 export default function RootLayout({
   children,
@@ -37,10 +40,12 @@ export default function RootLayout({
 
       <body>
         <CustomCursor />
-
         <ThemeProvider>
           <MenuProvider>
+            <MenuOverlay />
             <SmoothScroll>
+              <LenisMenuSync />
+              <ScrollToTopOnLoad />
               {children}
             </SmoothScroll>
           </MenuProvider>

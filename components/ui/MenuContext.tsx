@@ -38,6 +38,13 @@ export function MenuProvider({ children }: { children: ReactNode }) {
     };
   }, [open]);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <MenuContext.Provider value={{ open, toggleMenu, closeMenu }}>
       {children}
