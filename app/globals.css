@@ -109,3 +109,16 @@ body {
     transform: translate3d(-50%, 0, 0);
   }
 }
+.blog-sections {
+  counter-reset: blog-section;
+}
+
+.blog-section-heading {
+  counter-increment: blog-section;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.blog-section-heading > div::before {
+  content: counter(blog-section, decimal-leading-zero) " / ";
+}

@@ -3,6 +3,51 @@ import type { Project, SkillGroup, CarouselCard } from "@/types";
 // ============================================================
 // Navigation
 // ============================================================
+import type { BlogPost } from "@/types";
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "ocr-pipeline-300-documents-a-day",
+    title: "Processing 300+ Financial Documents a Day Without Losing Sleep",
+    type: "CASE STUDY",
+    date: "2026-03-14",
+    tags: ["Backend", "OCR", "FastAPI"],
+    readTime: "6 min read",
+    excerpt:
+      "Notes on building a production document-processing service at BSE — async workflows, OCR, and the unglamorous work of making a pipeline reliable enough to trust.",
+  },
+  {
+    slug: "natural-language-to-sql",
+    title: "Turning Plain English Into SQL You Can Actually Trust",
+    type: "DEEP DIVE",
+    date: "2026-01-22",
+    tags: ["AI", "FastAPI", "LLMs"],
+    readTime: "5 min read",
+    excerpt:
+      "Building a Natural Language Query engine taught me that the hard part isn't getting an LLM to write SQL — it's making sure it never writes SQL you didn't want.",
+  },
+  {
+    slug: "async-monitoring-200-endpoints",
+    title: "Monitoring 200+ Endpoints With Async Python",
+    type: "ENGINEERING NOTES",  
+    date: "2025-11-05",
+    tags: ["Python", "AsyncIO", "Systems"],
+    readTime: "5 min read",
+    excerpt:
+      "A concurrent monitoring service taught me why retry logic and structured error handling matter more than raw uptime numbers.",
+  },
+  {
+    slug: "two-years-at-a-stock-exchange",
+    title: "What Working on Backend Systems at a Stock Exchange Taught Me",
+    type: "REVIEWS",
+    date: "2025-08-30",
+    tags: ["Career", "Backend"],
+    readTime: "4 min read",
+    excerpt:
+      "A few honest lessons from building and maintaining production systems where reliability isn't optional.",
+  },
+];
+
 export const navLinks = [
   { label: "WORK", href: "/work" },
   { label: "ABOUT", href: "/about" },
