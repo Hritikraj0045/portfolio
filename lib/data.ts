@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "async-monitoring-200-endpoints",
     title: "Monitoring 200+ Endpoints With Async Python",
-    type: "ENGINEERING NOTES",  
+    type: "ENGINEERING NOTES",
     date: "2025-11-05",
     tags: ["Python", "AsyncIO", "Systems"],
     readTime: "5 min read",
@@ -174,6 +174,8 @@ export const projects: Project[] = [
         image: "/images/coretech.png",
       }
     ],
+    role: "Backend & AI Integration",
+    techStack: ["Next.js", "FastAPI", "OpenAI", "PostgreSQL", "SQLAlchemy"],
   },
   {
     id: "project-two",
@@ -196,6 +198,250 @@ export const projects: Project[] = [
       { label: "Profile" },
       { label: "Notifications" },
     ],
+    role: "Full-Stack Development",
+    techStack: ["React", "Node.js", "MongoDB", "AWS"],
+  },
+  {
+    id: "project-three",
+    index: "03",
+    name: "Project Three",
+    domain: "AI PRODUCT",
+    timeline: "2026",
+    role: "Full-Stack / AI Engineering",
+    description:
+      "Replace this with a concise description of what the project does, the problem it solves, and the engineering decisions behind it.",
+    status: "Production deployed",
+    links: {
+      details: "#",
+      live: "#",
+      source: "#",
+    },
+    stats: [
+      { value: "—", label: "METRIC ONE" },
+      { value: "—", label: "METRIC TWO" },
+      { value: "—", label: "METRIC THREE" },
+    ],
+    gallery: [
+      { label: "Primary View" },
+      { label: "Interface" },
+      { label: "Workflow" },
+      { label: "System" },
+    ],
+    techStack: ["Next.js", "Python", "FastAPI"],
+  }
+];
+
+export interface BuiltProject {
+  id: string;
+  index: string;
+  title: string;
+  category: string;
+  description: string;
+  tech: string[];
+  status: string;
+  live?: string;
+  source?: string;
+
+  detail: {
+    type: string;
+    role: string;
+    ownership: string;
+    description: string;
+    impact: string[];
+    capabilities: string[];
+    techStack: string[];
+    image?: string;
+  };
+}
+
+export const builtProjects: BuiltProject[] = [
+  {
+    id: "built-01",
+    index: "01",
+    title: "Project One",
+    category: "FULL-STACK",
+    description:
+      "Short description of the project and the problem it solves.",
+    tech: ["Next.js", "TypeScript", "Python"],
+    status: "PRODUCTION",
+    live: "#",
+    source: "#",
+
+    detail: {
+      type: "FULL-STACK SYSTEM",
+      role: "FULL-STACK DEVELOPER",
+      ownership: "END-TO-END",
+      description:
+        "Detailed description of the project. Replace this with the actual story, engineering decisions, and outcome.",
+      impact: [
+        "Impact point one",
+        "Impact point two",
+        "Impact point three",
+      ],
+      capabilities: [
+        "Capability one",
+        "Capability two",
+        "Capability three",
+        "Capability four",
+      ],
+      techStack: ["Next.js", "TypeScript", "Python"],
+    },
+  },
+
+  {
+    id: "built-02",
+    index: "02",
+    title: "Project Two",
+    category: "AI / ML",
+    description:
+      "Short description of the AI or machine-learning project.",
+    tech: ["Python", "FastAPI", "AI"],
+    status: "PRODUCTION",
+    live: "#",
+    source: "#",
+
+    detail: {
+      type: "AI SYSTEM",
+      role: "AI / BACKEND ENGINEER",
+      ownership: "END-TO-END",
+      description:
+        "Detailed description of the AI system, architecture, and engineering decisions.",
+      impact: [
+        "Impact point one",
+        "Impact point two",
+        "Impact point three",
+      ],
+      capabilities: [
+        "Capability one",
+        "Capability two",
+        "Capability three",
+      ],
+      techStack: ["Python", "FastAPI", "AI"],
+    },
+  },
+
+  {
+    id: "built-03",
+    index: "03",
+    title: "Project Three",
+    category: "BACKEND",
+    description:
+      "Short description of the backend system.",
+    tech: ["Python", "FastAPI", "MSSQL"],
+    status: "PRODUCTION",
+    live: "#",
+    source: "#",
+
+    detail: {
+      type: "BACKEND SYSTEM",
+      role: "BACKEND DEVELOPER",
+      ownership: "END-TO-END",
+      description:
+        "Detailed description of the backend architecture and implementation.",
+      impact: [
+        "Impact point one",
+        "Impact point two",
+      ],
+      capabilities: [
+        "Capability one",
+        "Capability two",
+        "Capability three",
+      ],
+      techStack: ["Python", "FastAPI", "MSSQL"],
+    },
+  },
+
+  {
+    id: "built-04",
+    index: "04",
+    title: "Project Four",
+    category: "AUTOMATION",
+    description:
+      "Short description of the automation system.",
+    tech: ["Python", "Selenium", "Playwright"],
+    status: "COMPLETED",
+    live: "#",
+    source: "#",
+
+    detail: {
+      type: "AUTOMATION SYSTEM",
+      role: "AUTOMATION ENGINEER",
+      ownership: "END-TO-END",
+      description:
+        "Detailed description of the automation workflow and engineering approach.",
+      impact: [
+        "Impact point one",
+        "Impact point two",
+      ],
+      capabilities: [
+        "Capability one",
+        "Capability two",
+        "Capability three",
+      ],
+      techStack: ["Python", "Selenium", "Playwright"],
+    },
+  },
+
+  {
+    id: "built-05",
+    index: "05",
+    title: "Project Five",
+    category: "WEB SYSTEM",
+    description:
+      "Short description of the web application.",
+    tech: ["React", "Next.js", "TypeScript"],
+    status: "COMPLETED",
+    live: "#",
+    source: "#",
+
+    detail: {
+      type: "WEB APPLICATION",
+      role: "FULL-STACK DEVELOPER",
+      ownership: "END-TO-END",
+      description:
+        "Detailed description of the application and its implementation.",
+      impact: [
+        "Impact point one",
+        "Impact point two",
+      ],
+      capabilities: [
+        "Capability one",
+        "Capability two",
+        "Capability three",
+      ],
+      techStack: ["React", "Next.js", "TypeScript"],
+    },
+  },
+
+  {
+    id: "built-06",
+    index: "06",
+    title: "Project Six",
+    category: "DATA / AI",
+    description:
+      "Short description of the data or AI project.",
+    tech: ["Python", "Pandas", "SQL"],
+    status: "EXPERIMENT",
+    live: "#",
+    source: "#",
+
+    detail: {
+      type: "DATA / AI SYSTEM",
+      role: "DATA / AI ENGINEER",
+      ownership: "END-TO-END",
+      description:
+        "Detailed description of the data pipeline, analysis, or AI implementation.",
+      impact: [
+        "Impact point one",
+        "Impact point two",
+      ],
+      capabilities: [
+        "Capability one",
+        "Capability two",
+        "Capability three",
+      ],
+      techStack: ["Python", "Pandas", "SQL"],
+    },
   },
 ];
 

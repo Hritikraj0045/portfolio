@@ -8,6 +8,7 @@ import Script from "next/script";
 import MenuOverlay from "@/components/layout/MenuOverlay";
 import LenisMenuSync from "@/components/layout/LenisMenuSync";
 import ScrollToTopOnLoad from "@/components/layout/ScrollToTopOnLoad";
+import FloatingAskButton from "@/components/ui/FloatingAskButton";
 
 export default function RootLayout({
   children,
@@ -42,6 +43,7 @@ export default function RootLayout({
         <CustomCursor />
         <ThemeProvider>
           <MenuProvider>
+            <FloatingAskButton />
             <MenuOverlay />
             <SmoothScroll>
               <LenisMenuSync />

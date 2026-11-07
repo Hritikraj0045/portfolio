@@ -59,27 +59,55 @@ export interface BlogPost {
 
 export type CarouselCard =
   | {
-      type: "photo";
-      label: string;
-      variant: "one" | "two";
-      href?: string;
-      image?: string;
-    }
+    type: "photo";
+    label: string;
+    variant: "one" | "two";
+    href?: string;
+    image?: string;
+  }
   | {
-      type: "metrics";
-      stats: { value: string; label: string }[];
-      image?: string;
-      href?: string;
-    }
+    type: "metrics";
+    stats: { value: string; label: string }[];
+    image?: string;
+    href?: string;
+  }
   | {
-      type: "link";
-      title: string;
-      label: string;
-      href: string;
-      image: string;
-    }
+    type: "link";
+    title: string;
+    label: string;
+    href: string;
+    image: string;
+  }
   | {
-      type: "ask";
-      href?: string;
-      image?: string;
-    };
+    type: "ask";
+    href?: string;
+    image?: string;
+  };
+export interface Project {
+  id: string;
+  index: string;
+  name: string;
+  domain: string;
+  timeline: string;
+  role?: string;
+  techStack?: string[];
+  description: string;
+  status: string;
+  links: {
+    details?: string;
+    live?: string;
+    source?: string;
+  };
+  stats: { value: string; label: string }[];
+  gallery: { label: string; image?: string }[];
+}
+export interface ChatMessage {
+  role: "user" | "assistant";
+  content: string;
+}
+
+export interface ChatSession {
+  id: string;
+  title: string;
+  messages: ChatMessage[];
+}

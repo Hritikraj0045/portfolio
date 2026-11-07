@@ -10,6 +10,7 @@ const tags = [
   "LANGGRAPH", "MCP", "GEMINI",
   "INNGEST", "POSTGRESQL", "TAILWIND",
   "FASTAPI", "DOCKER", "PRISMA",
+  
 ];
 
 export default function AboutStatement() {
