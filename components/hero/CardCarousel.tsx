@@ -217,9 +217,7 @@ function CardSlot({
   const cardContent = (
     <motion.div
       onClick={onClick}
-      animate={{
-        scale: active ? 1.02 : 1,
-      }}
+      animate={{ scale: active ? 1.02 : 1 }}
       transition={{ duration: 0.25 }}
       className={`
         relative shrink-0 rounded-md
@@ -237,7 +235,14 @@ function CardSlot({
     </motion.div>
   );
 
-  // Only navigate to the actual page when the card is already active.
+  if (card.type === "ask") {
+    return (
+      <Link href="/ask" className="block shrink-0">
+        {cardContent}
+      </Link>
+    );
+  }
+
   if (card.href && active) {
     return (
       <Link href={card.href} className="block shrink-0">
@@ -248,6 +253,53 @@ function CardSlot({
 
   return cardContent;
 }
+
+
+// function CardSlot({
+//   card,
+//   index,
+//   active,
+//   onClick,
+// }: {
+//   card: CarouselCard;
+//   index: number;
+//   active: boolean;
+//   onClick: () => void;
+// }) {
+//   const cardContent = (
+//     <motion.div
+//       onClick={onClick}
+//       animate={{
+//         scale: active ? 1.02 : 1,
+//       }}
+//       transition={{ duration: 0.25 }}
+//       className={`
+//         relative shrink-0 rounded-md
+//         box-border
+//         transition-all duration-300
+//         cursor-pointer
+//         ${
+//           active
+//             ? "border-2 border-black dark:border-white"
+//             : "border-2 border-transparent"
+//         }
+//       `}
+//     >
+//       <CardInner card={card} />
+//     </motion.div>
+//   );
+
+//   // Only navigate to the actual page when the card is already active.
+//   if (card.href && active) {
+//     return (
+//       <Link href={card.href} className="block shrink-0">
+//         {cardContent}
+//       </Link>
+//     );
+//   }
+
+//   return cardContent;
+// }
 
 // ------------------------------------------------------------
 // CAROUSEL

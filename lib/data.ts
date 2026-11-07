@@ -116,7 +116,7 @@ export const carouselCards: CarouselCard[] = [
   // 06 — Ask Anything
   {
     type: "ask",
-    href: "/chat",
+    href: "/ask",
     image: "/images/askmeanything.jpg",
   },
 
